@@ -1,0 +1,29 @@
+	<div ng-controller= 'produitController'>
+
+			<input ng-model="p2"> </input>
+			<input ng-model="p1"> </input>
+			<button ng-clik="inc()">++</button>
+			<button  ng-clik="resultat = resultat  - 1">--</button>
+			<br />
+
+			 la sommes est : {{(p1*1  + p2*1)}}
+			 <br />
+			 resultat :  {{resultat}}
+	<input  ng-model="query" type="text" name="" placeholder="Recherche contenu"> 
+	<select ng-model="organisation">
+		<option value="username">Organiser par nom</option>
+		<option  value="contenu">Organiser par contenu</option>
+	</select>
+
+		<br />
+	</div>	
+	<div class= "row justify-content-center">	
+
+	<div ng-controller="commentaireClient" class="col-8 jumbotron jumbotron-fluid" >
+		<ul  ng-repeat="user in commentaires | filter:{contenu:query }| orderBy:organisation">
+			<li> <strong>  {{user.username}}  </strong> :  {{user.contenu|filter:comquery }} </li>
+			 <input  ng-model="comquery" type="text" name="" placeholder="Recherche contenu"> 
+		</ul>
+	</div>
+	</div>
+	</div>

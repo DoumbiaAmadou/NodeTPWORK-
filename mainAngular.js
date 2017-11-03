@@ -3,10 +3,21 @@
 */
 (function(){
 	'use strict' ; 
-var app = angular.module('appModule' , []) ;  
+var app = angular.module('appModule' , [ 'ngRoute']);  
 
 
+/*! --------------------- Routes
+*/
+app.config(function ($routeProvider){
+	$routeProvider
+	.when('/'			,{templateUrl:'partials/accueil.html'})
+	.when('/commentaires' , {templateUrl:'partials/commentaires.html'})
+	.otherwise({redirectTo: '/'}); 
 
+});
+
+/*! ---------------------controlleur
+*/
 app.controller('produitController' , ['$scope' , function ($scope){
 	$scope.resultat  = $scope.p1+$scope.p2;//{"avocados" , "bannana"} 
 	
@@ -21,7 +32,7 @@ app.controller('produitController' , ['$scope' , function ($scope){
 	}
 }]); 
 
-app.controller('commentaireCleint' , ['$scope' , function($scope){
+app.controller('commentaireClient' , ['$scope' , function($scope){
 	$scope.commentaires = [
    {
       "_id": "59fc7cd7dfb0a821432f60d2",
@@ -529,6 +540,7 @@ app.controller('commentaireCleint' , ['$scope' , function($scope){
    }
 	]
 
-}]) ; 
+}]); 
+
 
 })()
