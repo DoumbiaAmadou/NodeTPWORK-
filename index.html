@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app=appModule>
+
+<head>
+	<title> Node js</title>
+	 <meta charset="utf-8">
+	<link rel="stylesheet" href="css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+</head>
+<body>
+	<div ng-controller= 'produitController'>
+
+			<input ng-model="p2"> </input>
+			<input ng-model="p1"> </input>
+			<button ng-clik="inc()">++</button>
+			<button  ng-clik="resultat = resultat  - 1">--</button>
+			<br />
+
+			 la sommes est : {{(p1*1  + p2*1)}}
+			 <br>
+			 resultat :  {{resultat}}
+	</div>
+	<input  ng-model="query" type="text" name="" placeholder="Recherche contenu"> 
+	<select ng-model="organisation">
+		<option value="username">Organiser par nom</option>
+		<option  value="contenu">Organiser par contenu</option>
+
+	</select>
+		<br />
+	<div ng-controller="commentaireCleint">
+		<ul>
+			<li ng-repeat="user in commentaires | filter:{contenu:query }| orderBy:organisation"> {{user.username}} => {{user.contenu}} </li>
+		</ul>
+
+		
+		<!-- datas -->
+			<!-- {{users| filter:query}} -->
+	</div>
+		
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
+<script src="./mainAngular.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+
+</body>
+</html>
